@@ -3,13 +3,29 @@ public class App {
         JogoDaSenha jogo1 = new JogoDaSenha();
         JogoDaSenha jogo2 = new JogoDaSenha();
         
-        int acertos1 = jogo1.fazerTentativa(5, 1, 30, 20,50);
-        int acertos2 = jogo2.fazerTentativa();
+        int acertos;
 
-        System.out.println(jogo1.getSenha());
-        System.out.println(jogo2.getSenha());
+        //Teste do motodo fazerTentativa com parametros
+        while(true){
+            acertos = jogo1.fazerTentativa(gerarNumero(), gerarNumero(),gerarNumero(), gerarNumero(), gerarNumero());   
+            if(acertos == 5){
+                System.out.println(jogo1.getSenha());
+                break;
+            }
+           System.out.println(jogo2.getSenha()+"\nNumero de acertos "+acertos+"\n");
+        }
 
-        System.out.println("Acertos da tentaiva 1 é "+acertos1);
-        System.out.println("Acertos da tentaiva 2 é "+acertos2);
+        //Teste do metodo fazerTentativa com entrada de valores pelo teclado
+        while(true){
+            acertos = jogo2.fazerTentativa();
+            if(acertos == 5){
+                System.out.println(jogo2.getSenha());
+                break;
+            }
+            System.out.println(jogo2.getSenha()+"\nNumero de acertos "+acertos+"\n");
+        }
+    }
+    static int gerarNumero(){
+        return  (int)(Math.random() * 100) + 1;
     }
 }
